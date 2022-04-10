@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TourManagerMVC.Domain.Models;
 
 namespace TourManagerMVC.Domain.Interfaces
 {
-    public class ITourRepository
+    public interface ITourRepository
     {
+        int AddTour(Tour tour);
+        void DeleteTour(int id);
+        void UpdateTour(Tour tour);
+        Tour GetTourById(int id);
+        IQueryable<Tour> GetAllTours();
     }
 }

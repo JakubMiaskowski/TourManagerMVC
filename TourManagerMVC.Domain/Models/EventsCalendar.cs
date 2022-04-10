@@ -11,6 +11,7 @@ namespace TourManagerMVC.Domain.Models
         public int Id { get; set; }
         public IEnumerable<Concert> Concerts { get; set; }
 
+
         public int VenueId { get; set; }
         public Venue Venue { get; set; }
     }

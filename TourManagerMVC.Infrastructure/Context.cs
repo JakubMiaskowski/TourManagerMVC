@@ -41,7 +41,8 @@ namespace TourManagerMVC.Infrastructure
             builder.Entity<Concert>()
                 .HasOne(c => c.Venue)
                 .WithMany(v => v.Concerts)
-                .HasForeignKey(c => c.VenueId);
+                .HasForeignKey(c => c.VenueId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Tour>()
                 .HasMany(t => t.Concerts)
@@ -59,12 +60,14 @@ namespace TourManagerMVC.Infrastructure
             builder.Entity<ArtistConcert>()
                 .HasOne(ac => ac.Artist)
                 .WithMany(a => a.ArtistConcerts)
-                .HasForeignKey(ac => ac.ArtistId);
+                .HasForeignKey(ac => ac.ArtistId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<ArtistConcert>()
                 .HasOne(ac => ac.Concert)
                 .WithMany(c => c.ArtistConcerts)
-                .HasForeignKey(ac => ac.ConcertId);
+                .HasForeignKey(ac => ac.ConcertId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

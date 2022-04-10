@@ -484,13 +484,13 @@ namespace TourManagerMVC.Infrastructure.Migrations
                     b.HasOne("TourManagerMVC.Domain.Models.Artist", "Artist")
                         .WithMany("ArtistConcerts")
                         .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("TourManagerMVC.Domain.Models.Concert", "Concert")
                         .WithMany("ArtistConcerts")
                         .HasForeignKey("ConcertId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Artist");
@@ -515,7 +515,7 @@ namespace TourManagerMVC.Infrastructure.Migrations
                     b.HasOne("TourManagerMVC.Domain.Models.Venue", "Venue")
                         .WithMany("Concerts")
                         .HasForeignKey("VenueId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Calendar");

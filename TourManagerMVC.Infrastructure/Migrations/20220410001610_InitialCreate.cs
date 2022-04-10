@@ -292,8 +292,7 @@ namespace TourManagerMVC.Infrastructure.Migrations
                         name: "FK_Concerts_Venues_VenueId",
                         column: x => x.VenueId,
                         principalTable: "Venues",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -382,16 +381,14 @@ namespace TourManagerMVC.Infrastructure.Migrations
                 table: "ArtistConcerts",
                 column: "ArtistId",
                 principalTable: "Artists",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_ArtistConcerts_Concerts_ConcertId",
                 table: "ArtistConcerts",
                 column: "ConcertId",
                 principalTable: "Concerts",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Artists_Concerts_ConcertId",
