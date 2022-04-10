@@ -9,6 +9,6 @@ namespace TourManagerMVC.Domain.Models
         public IEnumerable<Concert> Concerts { get; set; }
 
         
-        public int ArtistHeadlinerId { get; set; }
+        public int ArtistId { get; set; }
     }
 }

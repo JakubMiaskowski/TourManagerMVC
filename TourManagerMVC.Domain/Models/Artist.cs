@@ -7,10 +7,7 @@ namespace TourManagerMVC.Domain.Models
         public string Name { get; set; }
 
 
-        public int TourId { get; set; }
         public IList<Tour> Tours { get; set; }
         public IList<ArtistConcert> ArtistConcerts { get; set; }
-
-
     }
 }

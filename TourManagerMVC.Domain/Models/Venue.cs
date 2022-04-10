@@ -20,5 +20,9 @@ namespace TourManagerMVC.Domain.Models
 
         public int Capacity { get; set; }
 
+
+
+        public IList<Concert> Concerts { get; set; }
+
     }
 }

@@ -46,7 +46,7 @@ namespace TourManagerMVC.Infrastructure.Repositories
 
         public IQueryable<Artist> GetAllArtists()
         {
-            var artists = _context.Artists.AsQueryable<Artist>();
+            var artists = _context.Artists;
             return artists;
         }
     }

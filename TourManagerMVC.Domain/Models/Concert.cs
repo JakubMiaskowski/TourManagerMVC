@@ -8,7 +8,7 @@ namespace TourManagerMVC.Domain.Models
         public IEnumerable<Artist> Artists { get; set; }
         public Venue Venue { get; set; }
         public DateTime Date { get; set; }
-        public decimal TicketCost { get; private set; }
+        public double TicketCost { get; set; }
 
 
         public int TourId { get; set; }
@@ -16,5 +16,6 @@ namespace TourManagerMVC.Domain.Models
         public int CalendarId { get; set; }
         public EventsCalendar Calendar { get; set; }
         public IList<ArtistConcert> ArtistConcerts { get; set; }
+        public int VenueId { get; set; }
     }
 }

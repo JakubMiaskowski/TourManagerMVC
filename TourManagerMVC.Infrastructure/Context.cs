@@ -16,11 +16,13 @@ namespace TourManagerMVC.Infrastructure
 
         public Context(DbContextOptions options) : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
             builder.Entity<Venue>()
                 .HasOne(v => v.Address)
                 .WithOne(a => a.Venue)
@@ -36,6 +38,11 @@ namespace TourManagerMVC.Infrastructure
                 .WithOne(c => c.Calendar)
                 .HasForeignKey(p => p.CalendarId);
 
+            builder.Entity<Concert>()
+                .HasOne(c => c.Venue)
+                .WithMany(v => v.Concerts)
+                .HasForeignKey(c => c.VenueId);
+
             builder.Entity<Tour>()
                 .HasMany(t => t.Concerts)
                 .WithOne(c => c.Tour)
@@ -44,7 +51,7 @@ namespace TourManagerMVC.Infrastructure
             builder.Entity<Tour>()
                 .HasOne(t => t.Headliner)
                 .WithMany(a => a.Tours)
-                .HasForeignKey(t => t.ArtistHeadlinerId);
+                .HasForeignKey(t => t.ArtistId);
 
             builder.Entity<ArtistConcert>()
                 .HasKey(ac => new { ac.ArtistId, ac.ConcertId });
