@@ -2,12 +2,8 @@
 
 namespace TourManagerMVC.Domain.Interfaces
 {
-    public interface IVenueRepository
+    public interface IVenueRepository : IBaseRepository<Venue>
     {
-        int AddVenue(Venue venue);
-        void DeleteVenue(int id);
-        void UpdateVenue(Venue venue);
-        Venue GetVenueById(int id);
-        IQueryable<Venue> GetAllVenues();
+
     }
 }

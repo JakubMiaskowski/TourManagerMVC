@@ -10,12 +10,12 @@ using TourManagerMVC.Infrastructure.Common;
 
 namespace TourManagerMVC.Infrastructure.Repositories
 {
-    public class ArtistRepository : BaseRepository<Artist>, IArtistRepository
+    public class TourRepository : BaseRepository<Tour>, ITourRepository
     {
-        public ArtistRepository(Context context)
+        public TourRepository(Context context)
         {
             _context = context;
-            _entitySource = _context.Artists;
+            _entitySource = _context.Tours;
         }
     }
 }

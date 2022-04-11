@@ -21,7 +21,7 @@ namespace TourManagerMVC.Domain.Models
         public int Capacity { get; set; }
 
 
-
+        //Navigation Properties
         public IList<Concert> Concerts { get; set; }
 
     }

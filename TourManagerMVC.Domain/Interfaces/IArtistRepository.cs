@@ -2,12 +2,7 @@
 
 namespace TourManagerMVC.Domain.Interfaces
 {
-    public interface IArtistRepository
+    public interface IArtistRepository  : IBaseRepository<Artist>
     {
-        int AddArtist(Artist artist);
-        void DeleteArtist(int id);
-        void UpdateArtist(Artist artist);
-        Artist GetArtistById(int id);
-        IQueryable<Artist> GetAllArtists();
     }
 }

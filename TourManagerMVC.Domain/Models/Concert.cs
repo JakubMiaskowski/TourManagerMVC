@@ -10,7 +10,7 @@ namespace TourManagerMVC.Domain.Models
         public DateTime Date { get; set; }
         public double TicketCost { get; set; }
 
-
+        //Navigation Properties
         public int TourId { get; set; }
         public Tour Tour { get; set; }
         public int CalendarId { get; set; }

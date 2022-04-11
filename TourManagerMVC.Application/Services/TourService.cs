@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TourManagerMVC.Domain.Common
+namespace TourManagerMVC.Application.Services
 {
-    public abstract class BaseModel : AuditableModel
+    public class TourService
     {
-        public int Id { get; set; }
     }
 }

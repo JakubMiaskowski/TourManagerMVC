@@ -12,7 +12,7 @@ namespace TourManagerMVC.Domain.Models
 
         public string Country { get; set; }
 
-
+        //Navigation Properties
         public int VenueId { get; set; }
         public Venue Venue { get; set; }
     }

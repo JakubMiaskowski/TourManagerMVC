@@ -8,7 +8,7 @@ namespace TourManagerMVC.Domain.Models
         public Artist Headliner { get; set; }
         public IEnumerable<Concert> Concerts { get; set; }
 
-        
+        //Navigation Properties
         public int ArtistId { get; set; }
     }
 }

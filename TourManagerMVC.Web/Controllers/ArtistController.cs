@@ -1,32 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TourManagerMVC.Application.ViewModels.Artist;
+using TourManagerMVC.Application.Interfaces;
+using TourManagerMVC.Domain.Models;
 
 namespace TourManagerMVC.Web.Controllers
 {
     public class ArtistController : Controller
     {
-
-        public IActionResult All()
+        private readonly IArtistService _artistService;
+        public ArtistController(IArtistService artistService)
         {
-            IList<ArtistDetailsVM> artists = new List<ArtistDetailsVM>();
-            artists.Add(new ArtistDetailsVM { Id = 1, Name = "AC/DC" });
-            artists.Add(new ArtistDetailsVM { Id = 2, Name = "Tool" });
-            artists.Add(new ArtistDetailsVM { Id = 3, Name = "Black Sabbath" });
-            artists.Add(new ArtistDetailsVM { Id = 4, Name = "1000 Mods" });
+            _artistService = artistService;
+        }
+        public IActionResult Index()
+        {
+            var artists = _artistService.GetAllArtists();
             return View(artists);
         }
 
-        public IActionResult ById(int id)
-        {
-            IList<ArtistDetailsVM> artists = new List<ArtistDetailsVM>();
-            artists.Add(new ArtistDetailsVM { Id = 1, Name = "AC/DC" });
-            artists.Add(new ArtistDetailsVM { Id = 2, Name = "Tool" });
-            artists.Add(new ArtistDetailsVM { Id = 3, Name = "Black Sabbath" });
-            artists.Add(new ArtistDetailsVM { Id = 4, Name = "1000 Mods" });
-
-            var artist = artists.FirstOrDefault(p => p.Id == id);
-            return View(artist);
-
-        }
     }
 }
