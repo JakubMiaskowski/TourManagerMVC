@@ -6,8 +6,6 @@ namespace TourManagerMVC.Domain.Models
     {
         public string Name { get; set; }
 
-        public VenueType Type { get; set; }
-
         public string Owner { get; set; }
 
         public EventsCalendar Calendar { get; set; }

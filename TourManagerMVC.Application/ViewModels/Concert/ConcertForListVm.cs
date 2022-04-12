@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TourManagerMVC.Domain.Common
+namespace TourManagerMVC.Application.ViewModels.Concert
 {
-    public enum VenueType
+    public class ConcertForListVm
     {
-        Club,
-        Pub,
-        Stadium
+
     }
 }

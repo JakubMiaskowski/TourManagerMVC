@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper.QueryableExtensions;
 using TourManagerMVC.Application.Interfaces;
+using TourManagerMVC.Application.ViewModels.Venue;
 using TourManagerMVC.Domain.Interfaces;
+using TourManagerMVC.Domain.Models;
 
 namespace TourManagerMVC.Application.Services
 {
@@ -20,6 +18,58 @@ namespace TourManagerMVC.Application.Services
         {
             _venueRepository = venueRepository;
             _mapper = mapper;
+        }
+
+        public int AddVenue(NewVenueVm venue)
+        {
+            var newVenue = new Venue
+            {
+                Name = venue.Name,
+                Owner = venue.Owner,
+                Calendar = new EventsCalendar(),
+                Address = new Address
+                {
+                    StreetAddress = venue.StreetAddress,
+                    City = venue.City,
+                    ZipCode = venue.ZipCode,
+                    Country = venue.Country
+                },
+                Email = venue.Email,
+                Phone = venue.Phone,
+                Capacity = venue.Capacity
+            };
+
+            var id = _venueRepository.Add(newVenue);
+            return id;
+        }
+
+        public ListOfVenuesVm GetAllVenues()
+        {
+            var venues = _venueRepository.GetAllElements()
+                .ProjectTo<VenueForListVm>(_mapper.ConfigurationProvider).ToList();
+
+            var listOfVenues = new ListOfVenuesVm { Venues = venues };
+
+            return listOfVenues;
+        }
+
+        public VenueDetailsVm GetVenueDetails(int id)
+        {
+            var venueById = _venueRepository.GetElementById(id) ?? 
+                throw new Exception($"Venue with id {id} doesn't exist");
+
+            var venueDetails = _mapper.Map<VenueDetailsVm>(venueById);
+            return venueDetails;
+        }
+
+        public ListOfVenuesVm GetVenuesByCity(string city)
+        {
+            var venuesByCity = _venueRepository.GetVeuesByCity(city)
+                .ProjectTo<VenueForListVm>(_mapper.ConfigurationProvider).ToList();
+
+            var listOfVenues = new ListOfVenuesVm { Venues = venuesByCity };
+
+            return listOfVenues;
         }
     }
 }

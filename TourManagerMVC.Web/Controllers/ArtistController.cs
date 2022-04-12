@@ -17,5 +17,10 @@ namespace TourManagerMVC.Web.Controllers
             return View(artists);
         }
 
+        public IActionResult AddArtist()
+        {
+            return View();
+        }
+
     }
 }

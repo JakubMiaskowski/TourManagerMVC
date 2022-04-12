@@ -12,5 +12,10 @@ namespace TourManagerMVC.Infrastructure.Repositories
             _context = context;
             _entitySource = _context.Venues;
         }
+        public IQueryable<Venue> GetVeuesByCity(string city)
+        {
+            var venuesByCity = _entitySource.Where(p => p.Address.City == city);
+            return venuesByCity;
+        }
     }
 }
