@@ -17,7 +17,7 @@ namespace TourManagerMVC.Application.ViewModels.Venue
         {
             profile.CreateMap<TourManagerMVC.Domain.Models.Venue, VenueDetailsVm>()
                 .ForMember(p => p.AddressInformation, opt => opt.MapFrom(d =>
-                    $"{d.Address.StreetAddress}\r\n {d.Address.ZipCode} {d.Address.City}"));
+                    $"{d.Address.StreetAddress} | {d.Address.ZipCode} {d.Address.City}"));
         }
     }
 }

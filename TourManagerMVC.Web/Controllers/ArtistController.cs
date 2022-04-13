@@ -13,14 +13,9 @@ namespace TourManagerMVC.Web.Controllers
         }
         public IActionResult Index()
         {
-            var artists = _artistService.GetAllArtists();
-            return View(artists);
-        }
-
-        public IActionResult AddArtist()
-        {
             return View();
         }
+
 
     }
 }

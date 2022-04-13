@@ -6,6 +6,7 @@ namespace TourManagerMVC.Application.ViewModels.Venue
     public class ListOfVenuesVm : IMapFrom<TourManagerMVC.Domain.Models.Venue>
     {
         public IEnumerable<VenueForListVm> Venues { get; set; }
+        public int Count => Venues.Count();
 
         public void Mapping(Profile profile)
         {

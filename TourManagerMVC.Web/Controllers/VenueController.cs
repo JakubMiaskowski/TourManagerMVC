@@ -1,24 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TourManagerMVC.Application.Interfaces;
 
 namespace TourManagerMVC.Web.Controllers
 {
     public class VenueController : Controller
     {
-        public IActionResult Index()
+        private readonly IVenueService _venueService;
+
+        public VenueController(IVenueService venueService)
         {
-            return View();
+            _venueService = venueService;
         }
 
         [HttpGet]
-        public IActionResult AddVenue()
+        public IActionResult Index()
         {
-            return View();
+            var venues = _venueService.GetAllVenues();
+            return View(venues);
         }
 
-        [HttpPost]
-        public IActionResult AddVenue(int id)
+        [HttpGet]
+        public IActionResult Details(int id)
         {
-            return View();
+            var venueDetails = _venueService.GetVenueDetails(id);
+            return View(venueDetails);
         }
+
     }
 }

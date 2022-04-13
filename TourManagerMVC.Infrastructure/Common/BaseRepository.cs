@@ -38,10 +38,8 @@ namespace TourManagerMVC.Infrastructure.Common
 
         public T GetElementById(int id)
         {
-            var element = _entitySource.FirstOrDefault(p => p.Id == id);
+            var element = _entitySource.Find(id);
             return element;
         }
-
-        
     }
 }

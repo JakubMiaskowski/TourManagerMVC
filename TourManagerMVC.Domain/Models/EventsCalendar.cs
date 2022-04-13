@@ -9,10 +9,10 @@ namespace TourManagerMVC.Domain.Models
     public class EventsCalendar
     {
         public int Id { get; set; }
-        public IEnumerable<Concert> Concerts { get; set; }
+        public virtual IEnumerable<Concert> Concerts { get; set; }
 
         //Navigation Properties
         public int VenueId { get; set; }
-        public Venue Venue { get; set; }
+        public virtual Venue Venue { get; set; }
     }
 }

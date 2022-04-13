@@ -9,10 +9,10 @@ namespace TourManagerMVC.Domain.Models
     public class ArtistConcert
     {
         public int ArtistId { get;  set; }
-        public Artist Artist { get; set; }
+        public virtual Artist Artist { get; set; }
 
         //Navigation Properties
         public int ConcertId { get; set; }
-        public Concert Concert { get; set; }
+        public virtual Concert Concert { get; set; }
     }
 }

@@ -14,6 +14,6 @@ namespace TourManagerMVC.Domain.Models
 
         //Navigation Properties
         public int VenueId { get; set; }
-        public Venue Venue { get; set; }
+        public virtual Venue Venue { get; set; }
     }
 }

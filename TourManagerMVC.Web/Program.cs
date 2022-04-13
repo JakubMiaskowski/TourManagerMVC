@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TourManagerMVC.Application;
 using TourManagerMVC.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,11 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<Context>(options =>
-    options.UseSqlServer(connectionString));
+    options
+        .UseLazyLoadingProxies()    
+        .UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<Context>();
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -5,7 +5,7 @@ namespace TourManagerMVC.Application.ViewModels.Artist
 {
     public class ListOfArtistsVm : IMapFrom<TourManagerMVC.Domain.Models.Artist>
     {
-        public IEnumerable<ArtistVM> Artists { get; set; }
+        public IEnumerable<ArtistVm> Artists { get; set; }
 
         public void Mapping(Profile profile)
         {

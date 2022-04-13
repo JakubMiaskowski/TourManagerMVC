@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TourManagerMVC.Domain.Common
 {
-    public abstract class BaseModel : AuditableModel
+    public abstract class BaseModel
     {
         public int Id { get; set; }
     }

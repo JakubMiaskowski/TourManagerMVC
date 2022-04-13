@@ -8,9 +8,9 @@ namespace TourManagerMVC.Domain.Models
 
         public string Owner { get; set; }
 
-        public EventsCalendar Calendar { get; set; }
+        public virtual EventsCalendar Calendar { get; set; }
 
-        public Address Address { get; set; }
+        public virtual Address Address { get; set; }
 
         public string Email { get; set; }
 
@@ -20,7 +20,8 @@ namespace TourManagerMVC.Domain.Models
 
 
         //Navigation Properties
-        public IList<Concert> Concerts { get; set; }
+        public int AddressId { get; set; }
+        public virtual IList<Concert> Concerts { get; set; }
 
     }
 }
