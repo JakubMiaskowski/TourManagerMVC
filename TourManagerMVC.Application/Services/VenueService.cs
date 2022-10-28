@@ -43,33 +43,36 @@ namespace TourManagerMVC.Application.Services
             return id;
         }
 
-        public ListOfVenuesVm GetAllVenues()
+        public ListOfVenuesVm GetAllVenues(int pageSize, int? pageNo, string searchString)
         {
-            var venues = _venueRepository.GetAllElements()
-                .ProjectTo<VenueForListVm>(_mapper.ConfigurationProvider).ToList();
+            var venues = _venueRepository
+                            .GetAllElements()
+                            .Where(p => p.Address.City.StartsWith(searchString))
+                            .ProjectTo<VenueForListVm>(_mapper.ConfigurationProvider)
+                            .ToList();
 
-            var listOfVenues = new ListOfVenuesVm { Venues = venues };
+            var customersToShow = venues.Skip(pageSize * ((int)pageNo - 1)).Take(pageSize).ToList();
+
+
+            var listOfVenues = new ListOfVenuesVm
+            {
+                PageSize = pageSize,
+                CurrentPage = pageNo,
+                SearchString = searchString,
+                Venues = customersToShow,
+                Count = venues.Count
+            };
 
             return listOfVenues;
         }
 
         public VenueDetailsVm GetVenueDetails(int id)
         {
-            var venueById = _venueRepository.GetElementById(id) ?? 
+            var venueById = _venueRepository.GetElementById(id) ??
                 throw new Exception($"Venue with id {id} doesn't exist");
 
             var venueDetails = _mapper.Map<VenueDetailsVm>(venueById);
             return venueDetails;
-        }
-
-        public ListOfVenuesVm GetVenuesByCity(string city)
-        {
-            var venuesByCity = _venueRepository.GetVeuesByCity(city)
-                .ProjectTo<VenueForListVm>(_mapper.ConfigurationProvider).ToList();
-
-            var listOfVenues = new ListOfVenuesVm { Venues = venuesByCity };
-
-            return listOfVenues;
         }
     }
 }
