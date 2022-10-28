@@ -27,12 +27,12 @@ namespace TourManagerMVC.Web.Controllers
                 pageNo = 1;
             }
 
-            if (searchString == null)
+            if (searchString is null)
             {
                 searchString = string.Empty;
             }
 
-            var venues = _venueService.GetAllVenues(pageSize, pageNo, searchString);
+            var venues = _venueService.GetAllVenues(pageSize, pageNo.Value, searchString);
 
             return View(venues);
         }

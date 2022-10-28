@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TourManagerMVC.Domain.Interfaces;
+﻿using TourManagerMVC.Domain.Interfaces;
 using TourManagerMVC.Domain.Models;
 using TourManagerMVC.Infrastructure.Common;
 

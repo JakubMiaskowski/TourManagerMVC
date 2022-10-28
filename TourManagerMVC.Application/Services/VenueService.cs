@@ -43,7 +43,7 @@ namespace TourManagerMVC.Application.Services
             return id;
         }
 
-        public ListOfVenuesVm GetAllVenues(int pageSize, int? pageNo, string searchString)
+        public ListOfVenuesVm GetAllVenues(int pageSize, int pageNo, string searchString)
         {
             var venues = _venueRepository
                             .GetAllElements()
@@ -51,7 +51,7 @@ namespace TourManagerMVC.Application.Services
                             .ProjectTo<VenueForListVm>(_mapper.ConfigurationProvider)
                             .ToList();
 
-            var customersToShow = venues.Skip(pageSize * ((int)pageNo - 1)).Take(pageSize).ToList();
+            var customersToShow = venues.Skip(pageSize * (pageNo - 1)).Take(pageSize).ToList();
 
 
             var listOfVenues = new ListOfVenuesVm

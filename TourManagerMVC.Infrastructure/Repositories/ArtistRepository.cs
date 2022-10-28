@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TourManagerMVC.Domain.Interfaces;
+﻿using TourManagerMVC.Domain.Interfaces;
 using TourManagerMVC.Domain.Models;
 using TourManagerMVC.Infrastructure.Common;
 
