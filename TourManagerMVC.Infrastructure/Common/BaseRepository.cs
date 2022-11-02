@@ -30,7 +30,7 @@ namespace TourManagerMVC.Infrastructure.Common
             throw new NotImplementedException();
         }
 
-        public IQueryable<T> GetAllElements()
+        public virtual IQueryable<T> GetAllElements()
         {
             var elements = _entitySource;
             return elements;

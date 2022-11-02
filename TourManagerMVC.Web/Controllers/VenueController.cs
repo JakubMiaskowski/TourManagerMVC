@@ -15,7 +15,7 @@ namespace TourManagerMVC.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var venues = _venueService.GetAllVenues(1, 1, "");
+            var venues = _venueService.GetAllVenues(3, 1, "");
             return View(venues);
         }
 
