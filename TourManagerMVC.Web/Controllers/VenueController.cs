@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TourManagerMVC.Application.Interfaces;
+using TourManagerMVC.Application.ViewModels.Venue;
 
 namespace TourManagerMVC.Web.Controllers
 {
@@ -35,6 +36,19 @@ namespace TourManagerMVC.Web.Controllers
             var venues = _venueService.GetAllVenues(pageSize, pageNo.Value, searchString);
 
             return View(venues);
+        }
+
+        [HttpGet]
+        public IActionResult AddVenue()
+        {
+            return View(new NewVenueVm());
+        }
+
+        [HttpPost]
+        public IActionResult AddVenue(NewVenueVm model)
+        {
+            var id = _venueService.AddVenue(model);
+            return View();
         }
 
         [HttpGet]
